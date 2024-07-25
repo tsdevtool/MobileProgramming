@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="29dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text View 1"
+            android:height="350sp"
+            android:width="250sp"
+            android:textSize="20dp"
+            android:background="#ff332c"
+            android:gravity="bottom|end"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text View 2"
+            android:height="300sp"
+            android:width="200sp"
+            android:textSize="20dp"
+            android:background="#FFC107"
+            android:gravity="bottom|end"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text View 3"
+            android:height="250sp"
+            android:width="150sp"
+            android:textSize="20dp"
+            android:background="#00BCD4"
+            android:gravity="bottom|end"
+            android:padding="5dp"
+            />
+
+
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
