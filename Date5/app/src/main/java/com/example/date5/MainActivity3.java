@@ -1,8 +1,19 @@
 package com.example.date5;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.SurfaceControl;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -27,6 +38,73 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         loadData();
+        addEvents();
+    }
+
+    void showCustomDialog(Beers b){
+        Dialog dialog = new Dialog(MainActivity3.this);
+        dialog.setContentView(R.layout.custom_beer);
+
+        ImageView imvPhoto = dialog.findViewById(R.id.imvPhotoCustom);
+        imvPhoto.setImageResource(b.getBeerThumb());
+
+        TextView txtPrice = dialog.findViewById(R.id.txtPriceCustom);
+        txtPrice.setText(String.format("%.0f d", b.getBeerPrice()));
+
+        Button cancel = dialog.findViewById(R.id.btncancel);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.show();
+    }
+    private void addEvents() {
+
+        binding.lvBeers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Beers b = (Beers) adapter.getItem(i);
+                showCustomDialog(b);
+            }
+        });
+
+        binding.lvBeers.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Dialog dialog = new Dialog(MainActivity3.this);
+                dialog.setContentView(R.layout.custom_dialog);
+
+                Beers b = beers.get(i);
+
+                ImageView imvPhoto = dialog.findViewById(R.id.imvPhotoCustom);
+                imvPhoto.setImageResource(b.getBeerThumb());
+
+                TextView txtName = dialog.findViewById(R.id.txtNameCustom);
+                txtName.setText(b.getBeerName());
+
+                TextView txtPrice = dialog.findViewById(R.id.txtPriceCustom);
+                txtPrice.setText(b.getBeerPrice()+"");
+
+                Button cancel = dialog.findViewById(R.id.btncancel);
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.setCanceledOnTouchOutside(false);
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+                return true;
+            }
+        });
     }
 
     private void loadData() {
@@ -45,4 +123,6 @@ public class MainActivity3 extends AppCompatActivity {
         beers.add(new Beers(7, "Tiger", 14000, R.drawable.tiger));
         return beers;
     }
+
+
 }
