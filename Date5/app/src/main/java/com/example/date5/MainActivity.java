@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     ArrayAdapter<String> adapter;
     ArrayList<String> arrayListDrinks;
+    ArrayList<String> arrayListPizza;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         arrayListDrinks = new ArrayList<>();
         arrayListDrinks.addAll(Arrays.asList(drinks));
 
-        adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, arrayListDrinks);
+        arrayListPizza  = new ArrayList<>();
+        arrayListPizza.addAll(Arrays.asList(getResources().getStringArray(R.array.food)));
+        adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, arrayListPizza);
 
         binding.lvDrinks.setAdapter(adapter);
     }

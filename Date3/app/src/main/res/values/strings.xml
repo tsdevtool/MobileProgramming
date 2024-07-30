@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Date3</string>
+    <string name="anonymous_listener">Anonymous Listener</string>
+    <string name="xml_onclick_listener">XML onClick Listener</string>
+    <string name="variable1_listener" >Variable1 Listener</string>
+    <string name="variable2_listener" >Variable2 Listener</string>
+</resources>

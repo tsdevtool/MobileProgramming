@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Date5</string>
+    <string-array name="food">
+        <item>Ocean</item>
+        <item>Meat Lover</item>
+        <item>Extravagar</item>
+        <item>Seafood</item>
+        <item>Teriyaki</item>
+        <item>Pesto</item>
+        <item>NewYork</item>
+        <item>Singapo</item>
+
+    </string-array>
 </resources>
