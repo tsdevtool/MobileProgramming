@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imvPhoto"
+        android:layout_width="120dp"
+        android:layout_height="200dp"
+        android:src="@drawable/heineken"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beer's Name"
+            android:textSize="28sp"
+            android:textColor="#047e72"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beer's Name"
+            android:textSize="28sp"
+            android:textColor="#EB3A6D"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

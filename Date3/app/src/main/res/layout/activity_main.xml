@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/xml_onclick_listener"
+        android:textSize="22sp"
+        android:onClick="sayHello"/>
+
+    <Button
+        android:id="@+id/btnAnonymous"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/anonymous_listener"
+        android:textSize="22sp"
+        android:backgroundTint="#1dffe1" />
+
+    <Button
+        android:id="@+id/btnVariable1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/variable1_listener"
+        android:textSize="22sp"
+        android:backgroundTint="#1D9DFF" />
+    <Button
+        android:id="@+id/btnVariable2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/variable2_listener"
+        android:textSize="22sp"
+        android:backgroundTint="#46B5E9" />
+    <Button
+        android:id="@+id/btnActivity1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity 1 Listener"
+        android:textSize="22sp"
+        android:backgroundTint="#741DFF" />
+    <Button
+        android:id="@+id/btnActivity2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity 2 Listener"
+        android:textSize="22sp"
+        android:backgroundTint="#FF1DF4" />
+
+    <Button
+        android:id="@+id/btnExplicit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Explicit 1 Listener"
+        android:textSize="22sp"
+        android:backgroundTint="#741DFF" />
+    <Button
+        android:id="@+id/btnExplicit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Explicit 2 Listener"
+        android:textSize="22sp"
+        android:backgroundTint="#FF1DF4" />
+
+
+
+</LinearLayout>
