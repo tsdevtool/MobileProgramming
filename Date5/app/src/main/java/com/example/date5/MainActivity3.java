@@ -63,6 +63,7 @@ public class MainActivity3 extends AppCompatActivity {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.show();
     }
+
     private void addEvents() {
 
         binding.lvBeers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
