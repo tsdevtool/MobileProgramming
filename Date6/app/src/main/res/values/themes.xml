@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.Activity_Intent_Ex" parent="Base.Theme.Activity_Intent_Ex" />
+
+    <style name="BottomSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
 </resources>
