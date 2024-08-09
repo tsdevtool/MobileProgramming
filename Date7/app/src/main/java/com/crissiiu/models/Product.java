@@ -40,11 +40,7 @@ public class Product implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", productName='" + productName + '\'' +
-                ", productPrice='" + productPrice + '\'' +
-                '}';
+        return id + ": " + productName + " - " + productPrice + " vnđ";
     }
 
     private int id;
