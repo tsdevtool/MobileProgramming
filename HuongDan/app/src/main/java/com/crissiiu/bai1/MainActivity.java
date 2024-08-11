@@ -1,12 +1,20 @@
 package com.crissiiu.bai1;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -100,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
                 binding.edtPhoneNumber.setText(phoneNumberString);
             }
         });
+        binding.btnContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        Delete
         binding.btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -117,19 +132,89 @@ public class MainActivity extends AppCompatActivity {
         binding.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(binding.edtPhoneNumber.getText().length() > 0){
+                if(binding.edtPhoneNumber.getText().toString().length() > 0 ){
                     Intent intent = new Intent(Intent.ACTION_CALL);
 //                Uri uri = Uri.parse("tel:" + binding.edtPhoneNumber.getText().toString());
                     Uri uri = Uri.parse("tel:" + phoneNumberString);
                     intent.setData(uri);
                     startActivity(intent);
                 }else{
+//                    Notification 1:
 //                    Toast.makeText(MainActivity.this, "Please enter phone number", Toast.LENGTH_SHORT).show();
+
+//                    Notification 2:
+//                    customAlertDialog();
+
+//                    Notification3: custom dialog
+//                    customDialog();
+
+//                    Notification 4: xu ly
+                    Dialog dialog = new Dialog(MainActivity.this);
+                    dialog.setContentView(R.layout.activity_custom_dialog2);
+
+                    //Goi button
+                    Button ok = dialog.findViewById(R.id.btnOk);
+                    ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    //Exit app
+                    Button exitApp = dialog.findViewById(R.id.btnExitApp);
+                    exitApp.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MainActivity.this.finish();
+                        }
+                    });
+
+
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    dialog.show();
+
                 }
+
             }
         });
 
     }
 
 
+    private void customDialog(){
+        Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.custom_dialog);
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.show();
+    }
+
+    private void customAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Warning");
+        builder.setIcon(R.drawable.baseline_warning_24);
+        builder.setMessage("Please enter phone number!");
+
+        //Dong y
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        //Khong dong y - tat app
+        builder.setNegativeButton("Exit App", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity.this.finish();
+            }
+        });
+
+        Dialog dialog = builder.create();
+        dialog.show();
+    }
 }
